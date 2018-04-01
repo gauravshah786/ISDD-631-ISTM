@@ -1,0 +1,138 @@
+<!doctype>
+<html>
+    <head>
+        <title>Register</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,800italic,800,700italic,700,600italic,600,400italic,300%7CRoboto+Condensed:400,400i,700,700i%7CGreat+Vibes" rel="stylesheet">
+
+        <!-- Bootstrap Stylesheet -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- Font Awesome Stylesheet -->
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+
+        <!-- Custom Stylesheets -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/orange.css">
+
+        <script src="js/jquery.min.js"></script>
+        <!-- Firebase scripts -->
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
+        <script src=js/firebase.js></script>
+        <!-- End Firebase scripts -->
+    </head>
+
+    <body class="page-body">
+
+        <!--====== LOADER =====-->
+        <div class="loader"></div>
+
+
+        <!--============ SIDE-NAV =============-->
+        <div class="sidenav-content">
+            <div id="mySidenav" class="sidenav" >
+                <div id="web-name">
+                    <h2><span><i class="far fa-star"></i></span> <br/> <span>Res</span>taurant</h2>
+                </div><!-- end web-name -->
+
+                <div id="main-menu">
+                    <div class="sidenav-closebtn">
+                        <button class="btn btn-default" id="sidenav-close">&times;</button>
+                    </div><!-- end sidenav-closebtn -->
+
+                    <div class="list-group panel">
+
+                        <a href="#menu-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-utensils sidebar-icon"></i></span>Menu<span><i class="fa fa-caret-down arrow"></i></span></a>
+                        <div class="collapse sub-menu" id="menu-links">
+                            <a href="menu-grid.html" class="list-group-item">Menu Grid</a>
+                        </div><!-- end sub-menu -->
+
+                        <a href="contact" class="list-group-item"><span><i class="fa fa-phone sidebar-icon"></i></span>Contact Us</a>
+                        <a href="login" class="list-group-item"><span><i class="fa fa-lock sidebar-icon"></i></span>Login</a>
+                        <a href="#" class="list-group-item active"><span><i class="fa fa-user-plus sidebar-icon"></i></span>Register</a>
+                    </div><!-- end list-group -->
+                </div><!-- end main-menu -->
+            </div><!-- end mySidenav -->
+        </div><!-- end sidenav-content -->
+
+        <div class="canvas">
+
+            <div class="overlay-black"></div>
+
+            <!--========= HEADER =========-->
+            <%- include partials/header.ejs %>
+
+            <!--=================== PAGE-WRAPPER ================-->
+            <section class="page-wrapper innerpage-section-padding">
+                <div id="register-page" >
+                    <div class="container-fluid text-center">
+                        <div class="innerpage-heading">
+                            <h3>Register Now</h3>
+                        </div><!-- end innerpage-heading -->
+
+                        <div class="col-md-12">
+                          <div class="col-md-6">
+                            <form class="custom-form">
+                              <div class="form-group">
+                                   <div class="input-group">
+                                      <input type="text" id="name" class="form-control" placeholder="Name"  required/>
+                                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                   </div>
+                              </div>
+
+                              <div class="form-group">
+                                   <div class="input-group">
+                                      <input type="email" id="email" class="form-control" placeholder="Email"  required/>
+                                      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                  </div>
+                              </div>
+
+                              <div class="form-group">
+                                   <div class="input-group">
+                                      <input type="password" id="password" class="form-control" placeholder="Password"  required/>
+                                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                  </div>
+                              </div>
+
+                              <div class="form-group">
+                                   <div class="input-group">
+                                      <input type="password" id="confirmpwd" class="form-control" placeholder="Confirm Password"  required/>
+                                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                  </div>
+                              </div>
+
+                              <button class="btn btn-orange btn-radius" id="register">Register</button>
+                            </form>
+                            <div class="form-page-links">
+                                <p>Already Have An Account ? <a href="login">Login Now</a></p>
+                            </div><!-- end form-page-links -->
+                          </div>
+                          <div class="col-md-6">
+                            <img class="enjoy-image" src="images/main.jpg" alt="King of Good Times">
+                          </div>
+                        </div>
+
+                    </div><!-- end container-fluid -->
+                </div><!-- end register-page -->
+            </section><!-- end page-wrapper -->
+
+
+            <!--=============== FOOTER ===============-->
+            <%- include partials/footer.ejs %>
+
+        </div><!-- end canvas -->
+
+
+   		<!-- Page Scripts Starts -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/custom-navigation.js"></script>
+        <script src="js/signup.js"></script>
+      <!-- Page Scripts Ends -->
+
+    </body>
+</html>

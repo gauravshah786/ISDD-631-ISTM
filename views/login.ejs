@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,800italic,800,700italic,700,600italic,600,400italic,300%7CRoboto+Condensed:400,400i,700,700i%7CGreat+Vibes" rel="stylesheet">
+
+        <!-- Bootstrap Stylesheet -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- Font Awesome Stylesheet -->
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+
+        <!-- Custom Stylesheets -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/orange.css">
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
+        <script src=js/firebase.js></script>
+    </head>
+
+    <body class="page-body">
+
+        <!--====== LOADER =====-->
+        <div class="loader"></div>
+
+        <div class="canvas">
+            <div class="overlay-black"></div>
+            <%- include partials/header.ejs %>
+            <!--=================== PAGE-WRAPPER ================-->
+            <section class="page-wrapper innerpage-section-padding">
+                <div id="login-page">
+                    <div class="container-fluid text-center">
+                        <div class="innerpage-heading">
+                            <h3>Login</h3>
+                        </div><!-- end innerpage-heading -->
+                        <div class="col-md-12">
+                          <div class="col-md-6">
+                            <form class="custom-form">
+                                <div class="form-group">
+                                     <div class="input-group">
+                                        <input id="email" type="text" class="form-control" placeholder="Email"  required/>
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                     <div class="input-group">
+                                        <input id="password" type="password" class="form-control" placeholder="Password"  required/>
+                                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    </div>
+                                </div>
+                                <button id="login" class="btn btn-orange btn-radius">Login</button>
+                            </form>
+                            <div class="form-page-links">
+                                <a href="forgot-password">Forgot Password ?</a>
+                                <p> New Here ? <a href="register">Register Now</a></p>
+                            </div><!-- end form-page-links -->
+                          </div>
+                          <div class="col-md-6">
+                            <img class="enjoy-image" src="images/main.jpg" alt="King of Good Times">
+                          </div>
+                        </div>
+
+                    </div><!-- end container-fluid -->
+                </div><!-- end login-page -->
+            </section><!-- end page-wrapper -->
+
+
+            <!--=============== FOOTER ===============-->
+            <%- include partials/footer.ejs %>
+
+        </div><!-- end canvas -->
+
+
+   		<!-- Page Scripts Starts -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/custom-navigation.js"></script>
+        <script src="js/signin.js"></script>
+        <!-- Page Scripts Ends -->
+
+    </body>
+</html>
