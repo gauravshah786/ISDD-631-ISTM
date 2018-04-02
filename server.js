@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+
+var port = process.env.PORT || 3000;
 // var router = express.Router();
 
 // var path = __dirname + '/views/';
@@ -79,6 +81,6 @@ app.get('/user-profile',function(req, res){
 //   res.render('error-page');
 // });
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log('nodemon app listening on port 3000!');
+  app.listen(port, function () {
+  console.log('app is running on port:', port);
 });
