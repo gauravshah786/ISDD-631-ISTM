@@ -1,7 +1,7 @@
 /* -----------------------------------------------------
 		Loader
    ----------------------------------------------------- */
-   
+
 .loader {
 	background: url(../images/loader-orange.gif) center no-repeat #fff;
 }
@@ -9,11 +9,14 @@
 /* -----------------------------------------------------
 		Color
    ----------------------------------------------------- */
-   
+.header-links li.user-link a {
+  color:#000;
+}
+
+
 .fullscr-navigation li .fullscr-nav-icon,
 #mySidenav #web-name span,
 .header-logo h4 span,
-.header-links li.user-link a,
 #coffee-homepage #services .service-block .fa,
 .menu .white-menu .owl-controls .owl-buttons div,
 .dish-list-text h5,
@@ -50,7 +53,7 @@
 /* -----------------------------------------------------
 		Background Color
    ----------------------------------------------------- */
-   
+
 .page-heading:after,
 .btn-orange,
 .fullscr-navigation #fullscr-close,
@@ -84,7 +87,7 @@
 /* -----------------------------------------------------
 		Border Color
    ----------------------------------------------------- */
-   
+
 .page-heading-line,
 #mySidenav #web-name,
 .fullscr-navigation li a,
@@ -105,7 +108,7 @@
 /* -----------------------------------------------------
 		RGBA
    ----------------------------------------------------- */
-   
+
 .overlay{
 	background:rgba(255, 87, 34,0.88);
 }
