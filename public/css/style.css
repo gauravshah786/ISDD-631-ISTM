@@ -912,6 +912,9 @@ a:hover{
 
 #footer{
 	background:#0d0d0d;
+	position:fixed;
+	bottom:0;
+	width:100%;
 }
 
 #footer h3{
