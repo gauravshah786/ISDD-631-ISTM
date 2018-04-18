@@ -69,6 +69,10 @@ app.get('/user-profile',function(req, res){
   res.render('user-profile');
 });
 
+app.get('*', function(req, res){
+  res.render('error-page');
+});
+
 // app.post('/login',function(req,res){
 //
 // });
