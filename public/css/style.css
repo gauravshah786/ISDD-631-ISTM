@@ -9,7 +9,6 @@
 * 1.2	Header
 * 1.3	Slider
 * 1.4	Banners
-* 1.5	About Us
 * 1.6	Services
 * 1.7	Menu
 * 1.8	Testimonial
@@ -20,8 +19,6 @@
 * 1.13	Custom Form
 * 1.14	Form Page Links
 * 1.15	Menu Pages
-* 1.16	Chef Page
-* 1.17	Gallery Pages
 * 1.18	User Pages
 * 1.19	Shop Pages
 * 1.20	Extra Pages
@@ -478,15 +475,17 @@ a:hover{
 }
 
 .cart-list li .item-text h4,
-.cart-list li .item-text input{
+.cart-list li .item-text input,
+.dish-list input {
 	display:inline-block;
 }
 
-.cart-list li .item-text input{
-	width:65px;
-	font-size:18px;
+.cart-list li .item-text input,
+.dish-list input {
+	width:50px;
+	font-size:13px;
 	background:#f2f2f2;
-	border-radius:0px;
+	border-radius:5px;
 }
 
 .cart-list li .item-text h5{
@@ -731,22 +730,6 @@ a:hover{
 }
 
 /* -----------------------------------------------------
-		About Us
-   ----------------------------------------------------- */
-
-#about-us .page-heading-line + img{
-	margin-top:15px;
-}
-
-#about-us img{
-	display:inline-block;
-}
-
-#about-us img + p{
-	margin-top:15px;
-}
-
-/* -----------------------------------------------------
 		Services
    ----------------------------------------------------- */
 
@@ -824,9 +807,6 @@ a:hover{
 
 .menu .dish-list-text h4{
 	margin:15px 0px 5px 0px;
-}
-
-.menu .dish-list-text h4 a{
 	color:#212121;
 }
 
@@ -841,7 +821,7 @@ a:hover{
 
 .menu .dish-list-text .btn{
 	text-transform:uppercase;
-	font-size:13px;
+	font-size:10px;
 }
 
 .menu .dish-list-text .btn .fa{
@@ -850,13 +830,6 @@ a:hover{
 
 .menu .owl-carousel .owl-controls{
 	margin-top:20px;
-}
-
-/*************** BLACK-MENU **************/
-
-.menu.black-menu{
-	background:linear-gradient(rgba(0, 0, 0,0.85), rgba(0, 0, 0,0.85)), url('../images/black-menu-back.jpg') center center;
-	background-size:cover;
 }
 
 /* -----------------------------------------------------
@@ -926,35 +899,6 @@ a:hover{
 	top:-3px;
 	margin-right:5px;
 	font-size:22px;
-}
-
-#footer .footer-contact li span{
-	font-size:14px;
-	margin-right:10px;
-}
-
-#footer .footer-contact li{
-	font-size:13px;
-	margin-bottom:5px;
-}
-
-#footer .footer-social{
-	margin:25px 0px;
-	padding:3px 0px;
-}
-
-#footer .footer-social li .fab{
-	height:35px;
-	width:35px;
-	font-size:16px;
-	padding-top:8px;
-	border-radius:100%;
-	box-shadow:0px 0px 5px rgba(0,0,0,0.4);
-	border:1px solid rgba(0,0,0,0.4);
-}
-
-#footer .footer-social li .fab:hover{
-	border-color:#f2f2f2;
 }
 
 #footer .copyright{
@@ -1210,13 +1154,6 @@ a:hover{
 		Menu Pages
    ----------------------------------------------------- */
 
-/************ MENU-GRID-PAGE *************/
-
-.menu-grid .tab-content li{
-	float:left;
-	width:50%;
-}
-
 /************ MENU-LIST-PAGE *************/
 
 .menu-list .tab-content li .dish-list{
@@ -1236,33 +1173,6 @@ a:hover{
 
 .menu-list .menu .dish-list .dish-list-text h4{
 	margin-top:0px;
-}
-
-/*********** MENU-DETAIL-PAGE ************/
-
-.menu-detail .menu-title{
-	overflow:hidden;
-	margin-bottom:15px;
-}
-
-.menu-detail .menu-title .menu-name{
-	float:left;
-}
-
-.menu-detail .menu-title .menu-price{
-	float:right;
-	text-align:right;
-}
-
-.menu-detail .menu-title p{
-	font-size:13px;
-	margin-bottom:4px;
-}
-
-.menu-detail .menu-title h3{
-	font-weight:bold;
-	margin-top:0px;
-	font-size:21px;
 }
 
 #menu-gallery li{
@@ -1685,21 +1595,6 @@ a:hover{
 
 .order-panel .panel-body .order-list{
 	border-top:0px;
-}
-
-/* -----------------------------------------------------
-		Extra Pages
-   ----------------------------------------------------- */
-
-/*************** ABOUT-PAGE **************/
-
-#about-page img + p{
-	margin-top:20px;
-}
-
-#about-page img{
-	display:inline-block;
-	max-height:300px;
 }
 
 /************** ERROR-PAGE **************/

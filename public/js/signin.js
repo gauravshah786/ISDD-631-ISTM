@@ -7,7 +7,7 @@ $('#login').click((event) => {
     firebase.auth().signInWithEmailAndPassword(email, password).then(user => {
       db.collection("users").where("uid", "==", user.uid).get().then(querySnapshot => {
         querySnapshot.forEach(doc => {
-            localStorage.setItem('user', JSON.stringify(doc.data()) );
+            localStorage.setItem('user', JSON.stringify(doc.data()));
             window.location.href="/";
         });
       });

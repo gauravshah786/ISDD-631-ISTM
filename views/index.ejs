@@ -25,7 +25,7 @@
         <!-- OWL Stylesheets -->
         <link rel="stylesheet" href="css/owl.carousel.css">
         <link rel="stylesheet" href="css/owl.theme.css">
-
+        <script src="js/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
         <script src=js/firebase.js></script>
@@ -50,72 +50,12 @@
                     </div><!-- end sidenav-closebtn -->
 
                     <div class="list-group panel">
-
-                        <a href="#menu-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-utensils sidebar-icon"></i></span>Menu<span><i class="fa fa-caret-down arrow"></i></span></a>
-                        <div class="collapse sub-menu" id="menu-links">
-                            <a href="menu-grid" class="list-group-item">Menu Grid</a>
-                        </div><!-- end sub-menu -->
-
-                        <a href="contact" class="list-group-item"><span><i class="fa fa-phone sidebar-icon"></i></span>Contact Us</a>
                         <a href="login" class="list-group-item"><span><i class="fa fa-lock sidebar-icon"></i></span>Login</a>
                         <a href="register" class="list-group-item"><span><i class="fa fa-user-plus sidebar-icon"></i></span>Register</a>
                     </div><!-- end list-group -->
                 </div><!-- end main-menu -->
             </div><!-- end mySidenav -->
         </div><!-- end sidenav-content -->
-
-        <!--================ SHOPPING-CART ==============-->
-        <div id="shopping-cart-sidebar" class="shc-sidebar">
-            <ul class="list-unstyled cart-list">
-                <li>
-                    <div class="cart-item">
-                        <div class="item-text dish-list-text">
-                            <h4><a href="#">Breakfast-3</a></h4>
-                            <p>Lorem ipsum,dolor</p>
-                            <h5>Qty: <input type="number" class="form-control" min="1" value="1"> x $45</h5>
-                        </div><!-- end item-text -->
-
-                        <div class="item-img">
-                            <a href="#"><img src="images/dish-breakfast-3.jpg" class="img-responsive" alt="cart-item-img" /></a>
-                        </div><!-- end item-img -->
-
-                        <h4 class="total">Total: <span>$45</span></h4>
-
-                        <div class="item-close">
-                            <button class="btn"><span><i class="fa fa-times-circle"></i></span></button>
-                        </div><!-- end item-close -->
-                    </div><!-- end cart-item -->
-                </li>
-
-                <li>
-                    <div class="cart-item">
-                        <div class="item-text dish-list-text">
-                            <h4><a href="#">Dinner-4</a></h4>
-                            <p>Lorem ipsum,dolor</p>
-                            <h5>Qty: <input type="number" class="form-control" min="1" value="1"> x $45</h5>
-                        </div><!-- end item-text -->
-
-                        <div class="item-img">
-                            <a href="#"><img src="images/dish-dinner-4.png" class="img-responsive" alt="cart-item-img" /></a>
-                        </div><!-- end item-img -->
-
-                        <h4 class="total">Total: <span>$45</span></h4>
-
-                        <div class="item-close">
-                            <button class="btn"><span><i class="fa fa-times-circle"></i></span></button>
-                        </div><!-- end item-close -->
-                    </div><!-- end cart-item -->
-                </li>
-            </ul>
-
-            <div class="cart-info text-right">
-                <h4>Item(s) : <span>2</span></h4>
-                <h4>Total Price: <span>$90.00</span></h4>
-                <a href="shopping-cart" class="btn btn-black">View Cart</a>
-                <a href="checkout" class="btn btn-orange">Checkout</a>
-            </div><!-- end cart-info -->
-        </div><!-- shopping-cart-sidebar -->
-
 
         <!--============== USER-PROFILE-SIDEBAR =============-->
         <div id="user-profile-sidebar" class="user-prf-sidebar">
@@ -130,9 +70,7 @@
             	<ul class="list-unstyled">
                 	<li><a href="user-profile"><span><i class="fa fa-user"></i></span>My Profile</a></li>
                     <li><a href="edit-profile"><span><i class="fa fa-pencil-alt"></i></span>Edit Profile</a></li>
-                    <li><a href="forget-password"><span><i class="fa fa-question"></i></span>Forget Password</a></li>
-                    <li><a href="reset-password"><span><i class="fa fa-sync"></i></span>Reset Password</a></li>
-                    <li><a href="#"><span><i class="fa fa-sign-out-alt"></i></span>Sign Out</a></li>
+                    <li><a href="#" id="logout"><span><i class="fa fa-sign-out-alt"></i></span>Sign Out</a></li>
                 </ul>
             </div><!-- end user-prf-sidebar-links -->
         </div><!-- end user-profile-sidebar -->
@@ -209,22 +147,26 @@
                                 <div>
                                     <div class="grid">
                                         <div class="dish-list">
-                                            <a href="menu-detail"><img src="images/dish-breakfast-1.jpg" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/breakfast-1.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Breakfast-1</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Breakfast-1</h4>
+                                                <h5>$10</h5>
+                                                <input id="breakfast-1-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="breakfast-1" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
 
                                     <div class="grid">
                                         <div class="dish-list">
-                                            <a href="menu-detail"><img src="images/dish-breakfast-2.jpg" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/breakfast-2.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Breakfast-2</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Breakfast-2</h4>
+                                                <h5>$5</h5>
+                                                <input id="breakfast-2-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="breakfast-2" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
@@ -233,22 +175,26 @@
                                 <div>
                                     <div class="grid">
                                         <div class="dish-list">
-                                            <a href="menu-detail"><img src="images/dish-breakfast-3.jpg" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/breakfast-3.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Breakfast-3</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Breakfast-3</a>
+                                                <h5>$7</h5>
+                                                <input id="breakfast-3-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="breakfast-3" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
 
                                     <div class="grid">
                                         <div class="dish-list">
-                                            <a href="menu-detail"><img src="images/dish-breakfast-4.jpg" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/breakfast-4.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Breakfast-4</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Breakfast-4</h4>
+                                                <h5>$8</h5>
+                                                <input id="breakfast-4-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="breakfast-4" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
@@ -261,22 +207,26 @@
                                 <div>
                                     <div class="grid">
                                         <div class="dish-list">
-                                            <a href="menu-detail"><img src="images/dish-lunch-1.jpg" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/lunch-1.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Lunch-1</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Lunch-1</h4>
+                                                <h5>$15</h5>
+                                                <input id="lunch-1-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="lunch-1" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
 
                                     <div class="grid">
                                         <div class="dish-list">
-                                            <a href="menu-detail"><img src="images/dish-lunch-2.jpeg" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/lunch-2.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Lunch-2</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Lunch-2</h4>
+                                                <h5>$12</h5>
+                                                <input id="lunch-2-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="lunch-2" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
@@ -285,22 +235,26 @@
                                 <div>
                                     <div class="grid">
                                         <div class="dish-list">
-                                            <a href="menu-detail"><img src="images/dish-lunch-3.jpeg" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/lunch-3.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Lunch-3</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Lunch-3</h4>
+                                                <h5>$14</h5>
+                                                <input id="lunch-3-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="lunch-3" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
 
                                     <div class="grid">
                                         <div class="dish-list">
-                                            <a href="menu-detail"><img src="images/dish-lunch-4.jpg" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/lunch-4.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Lunch-4</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Lunch-4</h4>
+                                                <h5>$20</h5>
+                                                <input id="lunch-4-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="lunch-4" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
@@ -313,22 +267,26 @@
                                 <div>
                                     <div class="grid">
                                         <div class="dish-list">
-                                            <a href="menu-detail"><img src="images/dish-dinner-1.png" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/dinner-1.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Dinner-1</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Dinner-1</h4>
+                                                <h5>$10</h5>
+                                                <input id="dinner-1-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="dinner-1" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
 
                                     <div class="grid">
                                         <div class="dish-list">
-                                            <a href="menu-detail"><img src="images/dish-dinner-2.png" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/dinner-2.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Dinner-2</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Dinner-2</h4>
+                                                <h5>$15</h5>
+                                                <input id="dinner-2-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="dinner-2" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
@@ -337,22 +295,26 @@
                                 <div>
                                     <div class="grid">
                                         <div class="dish-list">
-                                             <a href="menu-detail"><img src="images/dish-dinner-3.png" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/dinner-3.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Dinner-3</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Dinner-3</h4>
+                                                <h5>$20</h5>
+                                                <input id="dinner-3-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="dinner-3" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
 
                                     <div class="grid">
                                         <div class="dish-list">
-                                             <a href="menu-detail"><img src="images/dish-dinner-4.png" class="img-responsive" alt="dish-menu" /></a>
+                                            <img src="images/dinner-4.jpg" class="img-responsive" alt="dish-menu" />
                                             <div class="dish-list-text">
-                                                <h4><a href="menu-detail">Dinner-4</a></h4>
-                                                <h5>$45</h5>
-                                                <p>Lorem ipsum, Dolor</p>
+                                                <h4>Dinner-4</h4>
+                                                <h5>$15</h5>
+                                                <input id="dinner-4-inp" type="number" class="form-control" min="1" value="1">
+                                                <button id="dinner-4" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
                                     </div><!-- end grid -->
@@ -389,7 +351,7 @@
                                 </div><!-- end reviewer-text -->
 
                                 <div class="reviewer-img">
-                                    <img src="images/reviewer-1.jpg" alt="reviewer-image" class="img-circle">
+                                    <img src="images/DD.jpg" alt="reviewer-image" class="img-circle">
                                 </div><!-- end reviewer-img -->
                             </div><!-- end review-block -->
                         </div><!-- end item -->
@@ -455,7 +417,7 @@
                                 </div><!-- end reviewer-text -->
 
                                 <div class="reviewer-img">
-                                    <img src="images/reviewer-4.jpg" alt="reviewer-image" class="img-circle">
+                                    <img src="images/SB.jpg" alt="reviewer-image" class="img-circle">
                                 </div><!-- end reviewer-img -->
                             </div><!-- end review-block -->
                         </div><!-- end item -->
@@ -470,7 +432,6 @@
 
 
    		<!-- Page Scripts Starts -->
-        <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.flexslider.js"></script>
         <script src="js/owl.carousel.min.js"></script>

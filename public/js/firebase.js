@@ -11,6 +11,6 @@ firebase.initializeApp(config);
 
 firebase.auth().onAuthStateChanged(user => {
   if (!user) {
-    window.user = null;
+    localStorage.clear();
   }
 });
