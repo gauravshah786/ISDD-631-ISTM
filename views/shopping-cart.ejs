@@ -29,25 +29,6 @@
         <!--====== LOADER =====-->
         <div class="loader"></div>
 
-        <!--============ SIDE-NAV =============-->
-        <div class="sidenav-content">
-            <div id="mySidenav" class="sidenav" >
-                <div id="web-name">
-                    <h2><span>Yummy</span> Days</h2>
-                </div><!-- end web-name -->
-
-                <div id="main-menu">
-                    <div class="sidenav-closebtn">
-                        <button class="btn btn-default" id="sidenav-close">&times;</button>
-                    </div><!-- end sidenav-closebtn -->
-
-                    <div class="list-group panel">
-                        <a href="/" class="list-group-item"><span><i class="fa fa-lock sidebar-icon"></i></span>Home</a>
-                    </div><!-- end list-group -->
-                </div><!-- end main-menu -->
-            </div><!-- end mySidenav -->
-        </div><!-- end sidenav-content -->
-
         <!--============== USER-PROFILE-SIDEBAR =============-->
         <div id="user-profile-sidebar" class="user-prf-sidebar">
         	<div class="user-prf-sidebar-img text-center">
@@ -70,14 +51,41 @@
             <div class="overlay-black"></div>
 
             <!--========= HEADER =========-->
-            <%- include partials/header.ejs %>
+            <div class="header">
+                <div class="fixed-header">
+                    <div class="container-fluid">
+                        <div class="header-logo">
+                            <a href="/"><img src='images/trans5_logo.png'></a>
+                        </div><!-- end header-logo -->
+                        <div class="header-links">
+                            <ul class="list-unstyled list-inline">
+                                <li class="shopping-cart">
+                                  <a href="/shopping-cart" id="shc-side-open">
+                                    <span>
+                                      <i class="fa fa-shopping-cart"></i>
+                                    </span>
+                                    <span id="cart-qty" class="cart-badge"><%=data.length%></span>
+                                  </a>
+                                </li>
+                                <li class="user-link"><a href="#" id="usr-side-open"><span><i class="fa fa-user"></i></span></a></li>
+                            </ul>
+                        </div><!-- end header-links -->
+                    </div><!-- end container-fluid -->
+                </div><!-- end fixed-header -->
+            </div><!-- end header -->
+            <script src="js/header.js">
+            </script>
 
             <!--=================== PAGE-WRAPPER ================-->
             <section class="page-wrapper innerpage-section-padding">
                 <div id="shopping-cart-page" >
                     <div class="container-fluid">
-                        <div class="innerpage-heading text-center">
+                        <div class="innerpage-heading cart-text-center">
+                          <% if(data.length>0) { %>
                             <h3 id="cart-message">Your Cart</h3>
+                          <% } else { %>
+                            <h3 id="cart-message">Your Cart is empty</h3>
+                          <% } %>
                         </div><!-- end innerpage-heading -->
 
                         <div id="removable">
@@ -106,10 +114,13 @@
                             <% } %>
                           </ul>
 
+                          <% if(data.length>0) { %>
                           <div class="cart-info text-right">
                               <h4 id="price-total">Total Price: $ <span id="cart-total"><%= sum%></span></h4>
-                              <a href="checkout.html" class="btn btn-orange">Checkout</a>
+                              <a href="/checkout" class="btn btn-orange">Checkout</a>
                           </div><!-- end cart-info -->
+                          <% } else { %>
+                          <% } %>
                         </div>
 
                     </div><!-- end container-fluid -->

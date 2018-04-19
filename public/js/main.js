@@ -33,8 +33,11 @@ $(".btn").click(event => {
     $('#' + id).prop('disabled',true);
     $('#' + id).html("Added");
     $('#' + id + '-inp').prop('disabled',true);
-    db.collection("cart").add(item).catch(error => {
-        console.error("Error adding cart item: ", error);
+    db.collection("cart").add(item).then(() => {
+      const cartQty = Number.parseInt($('#cart-qty').html(), 10) + 1;
+      $('#cart-qty').html(cartQty);
+    }).catch(error => {
+      console.error("Error adding cart item: ", error);
     });
   } else {
     alert("Please login to add items to cart");

@@ -14,7 +14,6 @@
 * 1.8	Testimonial
 * 1.9	Footer
 * 1.10	Page Cover
-* 1.11	Pagination
 * 1.12	Comments & Reviews
 * 1.13	Custom Form
 * 1.14	Form Page Links
@@ -215,14 +214,12 @@ a:hover{
 .order-list .cart-info h4:before,
 .order-list .cart-info h4:after,
 #order-history-page .form-group select,
-#order-history-page .form-group .fa,
-#bakery-homepage #about-us p{
+#order-history-page .form-group .fa {
 	color:white;
 }
 
 #testimonial.text-white .owl-controls .owl-page span,
-#services,
-.footer-social li .fab:hover{
+#services {
 	background:#f2f2f2;
 }
 
@@ -231,7 +228,6 @@ a:hover{
 }
 
 #footer,
-.footer-social li .fab,
 #footer .copyright{
 	color:#f2f2f2;
 }
@@ -590,18 +586,17 @@ a:hover{
    ----------------------------------------------------- */
 
 .header{
-	height:119px;
+	height:52px;
 }
 
 .header .fixed-header{
-	/* background:#ec5959; */
 	background:#ff5722;
 	box-shadow:0px 3px 6px rgba(0,0,0,0.2);
 	position:fixed;
 	top:0;
 	left:0;
 	width:100%;
-	padding:15px 0px 4px;
+	padding:5px 0px;
 	z-index:100;
 }
 
@@ -627,6 +622,9 @@ a:hover{
 	float:right;
 }
 
+.header .header-links .list-unstyled{
+	margin-top: 20%;
+}
 .header .header-links li{
 	position:relative;
 }
@@ -885,7 +883,6 @@ a:hover{
 
 #footer{
 	background:#0d0d0d;
-
 }
 
 #footer h3{
@@ -894,190 +891,9 @@ a:hover{
 	margin-bottom:15px;
 }
 
-#footer h3 i{
-	position:relative;
-	top:-3px;
-	margin-right:5px;
-	font-size:22px;
-}
-
 #footer .copyright{
 	font-size:13px;
 	margin:20px 0px;
-}
-
-#footer .copyright a{
-	text-transform:uppercase;
-}
-
-#footer .copyright span{
-	margin-right:3px;
-	position:relative;
-	top:-1px;
-}
-
-/* -----------------------------------------------------
-		Page Cover
-   ----------------------------------------------------- */
-
-.page-cover h3{
-	font-weight:bold;
-	text-align:center;
-	font-size:28px;
-	margin:19px 0px 10px;
-}
-
-.page-cover .fa{
-	position:relative;
-	top:-8px;
-	font-size:18px;
-}
-
-.cover-left-icon .fa{
-	transform:rotateY(180deg);
-	position:relative;
-}
-
-/* -----------------------------------------------------
-		Pagination
-   ----------------------------------------------------- */
-
-.pages{
-	text-align:center;
-}
-
-.pages .pagination li a{
-	margin-top:14px;
-}
-
-.pages .pagination li a{
-	font-size:14px;
-	margin-left:1px;
-	margin-right:1px;
-	padding:6px 14px;
-}
-
-.pages .pagination li:first-child a,
-.pages .pagination li:last-child a{
-	padding:6px 16px;
-}
-
-.pages .pagination li a{
-	border-radius:0px;
-	background:#e6e7e8;
-	color:#808285;
-	border:0px;
-}
-
-.pages .pagination li:first-child a,
-.pages .pagination li:last-child a{
-	background:#4d4d4d;
-}
-
-.pages .pagination li:first-child:hover a,
-.pages .pagination li:last-child:hover a{
-	background:#404040;
-}
-
-/* -----------------------------------------------------
-		Comments & Reviews
-   ----------------------------------------------------- */
-
-.comments-wrapper .comment-block{
-	padding:10px 0px;
-	border-bottom:1px solid #e6e6e6;
-}
-
-.comments-wrapper .comment-block:first-child{
-	padding-top:0px;
-}
-
-.comments-wrapper .comment-block:last-child{
-	border-bottom:0px;
-}
-
-.comments-wrapper .comment-block h4{
-	margin-bottom:6px;
-	font-size:17px;
-}
-
-.comments-wrapper .comment-block .star-rating{
-	margin:0px;
-	font-size:11px;
-	float:right;
-}
-
-.comments-wrapper .comment-block h4,
-.comments-wrapper .comment-block .star-rating{
-	display:inline-block;
-}
-
-.comments-wrapper .comment-block p,
-.comments-wrapper .comment-block a{
-	font-size:13px;
-}
-
-.comments-wrapper .comment-block a .fa{
-	margin-right:6px;
-}
-
-.comments-wrapper .reply-block{
-	padding-left:25px;
-}
-
-#reviews form{
-	margin-top:40px;
-}
-
-#reviews form h3{
-	font-weight:bold;
-	text-transform:uppercase;
-	font-size:21px;
-	margin-bottom:15px;
-}
-
-/* -----------------------------------------------------
-		Custom Form
-   ----------------------------------------------------- */
-
-.custom-form input,
-.custom-form select,
-.custom-form textarea{
-	border-radius:0px;
-	background:#f2f2f2;
-	box-shadow:none;
-	border:0px;
-	border-left:4px solid #212121;
-}
-
-.custom-form input:focus,
-.custom-form select:focus,
-.custom-form textarea:focus{
-	box-shadow:none;
-}
-
-.custom-form .input-group-addon{
-	border:0px;
-	border-radius:0px;
-	background:#f2f2f2;
-}
-
-.custom-form label{
-	font-weight:normal;
-	font-size:13px;
-	color:#737373;
-	line-height:1.5em;
-}
-
-.custom-form input[type="checkbox"]{
-	margin-right:8px;
-	position:relative;
-	top:2px;
-}
-
-.custom-form .btn{
-	padding:7px 35px;
-	margin-top:10px;
 }
 
 /* -----------------------------------------------------
@@ -1097,57 +913,6 @@ a:hover{
 .form-page-links p{
 	margin-bottom:0px;
 	font-size:13px;
-}
-
-.form-page-connect-social{
-	margin-top:35px;
-	border-top:1px solid #ededed;
-	padding-top:30px;
-}
-
-.form-page-connect-social h4{
-	color:#333;
-	font-weight:bold;
-	margin-bottom:20px;
-	font-size:18px;
-}
-
-.form-page-connect-social li{
-	float:left;
-	width:50%;
-	margin-bottom:17px;
-}
-
-.form-page-connect-social li .btn span{
-	margin-right:10px;
-}
-
-.form-page-connect-social li .btn:hover{
-	opacity:0.9;
-}
-
-.form-page-connect-social li .btn.fb{
-	background:#3b5999;
-}
-
-.form-page-connect-social li .btn.gm{
-	background:#dd4b39;
-}
-
-.form-page-connect-social li .btn.any{
-	background:#4d4d4d;
-}
-
-.form-page-connect-social li:nth-child(1){
-	padding-right:8px;
-}
-
-.form-page-connect-social li:nth-child(2){
-	padding-left:8px;
-}
-
-.form-page-connect-social li:nth-child(3){
-	width:100%;
 }
 
 /* -----------------------------------------------------
@@ -1309,34 +1074,13 @@ a:hover{
 	display:inline-block;
 }
 
-/*********** EDIT-PROFILE-PAGE ***********/
-
-#edit-user-page .innerpage-heading{
-	margin-bottom:15px;
-}
-
-.form-profile-img{
-	overflow:hidden;
-	padding:7px 0px 15px;
-}
-
-.form-profile-img img{
-	max-height:120px;
-	display:inline-block;
-	margin-bottom:15px;
-	box-shadow:0px 0px 10px rgba(0,0,0,0.3);
-}
-
-.form-profile-img input{
-	overflow:hidden;
-	width:70%;
-	margin:0 auto;
-	border-left:0px;
-}
-
 /* -----------------------------------------------------
 		Shop Pages
    ----------------------------------------------------- */
+
+.cart-text-center{
+	text-align: center;
+}
 
 /************* CHECKOUT-PAGE *************/
 
@@ -1471,204 +1215,11 @@ a:hover{
 	font-weight:bold;
 }
 
-/********** ORDER-HISTORY-PAGE **********/
-
-#order-history-page .innerpage-heading{
-	margin-bottom:15px;
-}
-
-#order-history-page .form-group{
-	margin-bottom:30px;
-	position:relative;
-}
-
-#order-history-page .form-group select{
-	border-radius:0px;
-	background:#333333;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-	box-shadow:none;
-	border:0px;
-	padding-left:34px;
-}
-
-#order-history-page .form-group select option{
-	background:white;
-	color:#333;
-}
-
-#order-history-page .form-group .fa{
-	position:absolute;
-	pointer-events:none;
-}
-
-#order-history-page .form-group .fa-calendar-alt{
-	top:9px;
-	left:12px;
-	font-size:16px;
-}
-
-#order-history-page .form-group .fa-angle-down{
-	top:7px;
-	right:12px;
-	font-size:20px;
-}
-
-.order-panel{
-	border-radius:0px;
-	margin-bottom:15px;
-}
-
-.order-panel .panel-heading{
-	background:#f2f2f2;
-	border-left:4px solid;
-	border-radius:0px;
-	border-bottom:0px;
-}
-
-.order-panel .panel-heading .order-title{
-	overflow:hidden;
-}
-
-.order-panel .panel-heading .order-name h3{
-	color:#1b1819;
-	margin-bottom:8px;
-	font-size:15px;
-}
-
-.order-panel .panel-heading .order-name h3 span{
-	font-weight:bold;
-}
-
-.order-panel .panel-heading .order-name ul{
-	margin-bottom:0px;
-	font-size:12px;
-	color:grey;
-}
-
-.order-panel .panel-heading .order-name ul li .fa{
-	margin-right:7px;
-	color:grey;
-}
-
-.order-panel .panel-heading .order-title .order-status{
-	font-size:16px;
-	text-align:center;
-	width:45px;
-}
-
-.order-panel .panel-heading .order-title .order-status .status-text{
-	position:relative;
-	top:-2px;
-	font-size:13px;
-}
-
-.order-panel .panel-heading .order-title .order-status.success .fa,
-.order-panel .panel-heading .order-title .order-status.success .status-text{
-	color:green;
-}
-
-.order-panel .panel-heading .order-title .order-status.fail .fa,
-.order-panel .panel-heading .order-title .order-status.fail .status-text{
-	color:red;
-}
-
-.order-panel .panel-body{
-	padding:25px 15px;
-}
-
-.order-panel .panel-body .order-list li{
-	overflow:hidden;
-}
-
-.order-panel .panel-body .order-list li .order{
-	overflow:hidden;
-}
-
-.order-panel .panel-body .order-item-info p:nth-of-type(1){
-	font-size:14px;
-}
-
-.order-panel .panel-body .order-item-info p:nth-of-type(1) span{
-	font-weight:bold;
-}
-
-.order-panel .panel-body .order-list{
-	border-top:0px;
-}
-
-/************** ERROR-PAGE **************/
-
-#error-page h2{
-	font-size:100px;
-	font-weight:bold;
-	position:relative;
-	display:inline-block;
-	padding:0px 8px;
-	margin-bottom:25px;
-}
-
-#error-page h2:before{
-	content:'';
-	position:absolute;
-	left:0px;
-	top:0px;
-	width:1px;
-	height:69%;
-}
-
-#error-page h2:after{
-	content:'';
-	position:absolute;
-	left:0px;
-	top:0px;
-	width:79%;
-	height:1px;
-}
-
-.h2-shape:before{
-	content:'';
-	position:absolute;
-	right:0px;
-	bottom:0px;
-	width:1px;
-	height:69%;
-}
-
-.h2-shape:after{
-	content:'';
-	position:absolute;
-	right:0px;
-	bottom:0px;
-	width:79%;
-	height:1px;
-}
-
-#error-page h4{
-	color:#1b1819;
-	font-size:27px;
-}
-
-#error-page .btn{
-	margin-top:15px;
-	font-size:16px;
-	padding:7px 24px;
-}
-
 /************** MEDIA-QUERIES **************/
-.enjoy-image{
-		width:100%;
-		border-radius: 15px;
-}
 
 @media (max-width: 990px) {
-	.enjoy-image{
-			margin-top: 20px;
-	}
-
 	.innerpage-heading{
 		text-align: center;
 		margin-left: 0px;
 	}
-
 }

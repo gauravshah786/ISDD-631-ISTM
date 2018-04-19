@@ -31,41 +31,20 @@
 
         <!--====== LOADER =====-->
         <div class="loader"></div>
-
-
-        <!--============ SIDE-NAV =============-->
-        <div class="sidenav-content">
-            <div id="mySidenav" class="sidenav" >
-                <div id="web-name">
-                    <h2><span><i class="far fa-star"></i></span> <br/> <span>Res</span>taurant</h2>
-                </div><!-- end web-name -->
-
-                <div id="main-menu">
-                    <div class="sidenav-closebtn">
-                        <button class="btn btn-default" id="sidenav-close">&times;</button>
-                    </div><!-- end sidenav-closebtn -->
-
-                    <div class="list-group panel">
-
-                        <a href="#menu-links" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-utensils sidebar-icon"></i></span>Menu<span><i class="fa fa-caret-down arrow"></i></span></a>
-                        <div class="collapse sub-menu" id="menu-links">
-                            <a href="menu-grid.html" class="list-group-item">Menu Grid</a>
-                        </div><!-- end sub-menu -->
-
-                        <a href="contact" class="list-group-item"><span><i class="fa fa-phone sidebar-icon"></i></span>Contact Us</a>
-                        <a href="login" class="list-group-item"><span><i class="fa fa-lock sidebar-icon"></i></span>Login</a>
-                        <a href="#" class="list-group-item active"><span><i class="fa fa-user-plus sidebar-icon"></i></span>Register</a>
-                    </div><!-- end list-group -->
-                </div><!-- end main-menu -->
-            </div><!-- end mySidenav -->
-        </div><!-- end sidenav-content -->
-
         <div class="canvas">
 
             <div class="overlay-black"></div>
 
             <!--========= HEADER =========-->
-            <%- include partials/header.ejs %>
+            <div class="header">
+                <div class="fixed-header">
+                    <div class="container-fluid">
+                        <div class="header-logo">
+                            <a href="/"><img src='images/trans5_logo.png'></a>
+                        </div><!-- end header-logo -->
+                    </div><!-- end container-fluid -->
+                </div><!-- end fixed-header -->
+            </div><!-- end header -->
 
             <!--=================== PAGE-WRAPPER ================-->
             <section class="page-wrapper innerpage-section-padding" style="background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/main.jpg'); background-size:cover;">

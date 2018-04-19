@@ -28,6 +28,8 @@ $("input[type=number]").on('input', (event) => {
 });
 
 $('.remove').click(event => {
+  const cartQty = Number.parseInt($('#cart-qty').html(), 10) - 1;
+  $('#cart-qty').html(cartQty);
   const common = event.target.id.substring(0,event.target.id.length-6);
   const id = '#' + event.target.id.substring(0,event.target.id.length-6) + '-li';
   const cartTotal = Number.parseInt($('#cart-total').html(), 10);

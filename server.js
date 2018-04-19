@@ -20,10 +20,6 @@ admin.initializeApp({
 var db = admin.firestore();
 var app = express();
 var port = process.env.PORT || 3000;
-// var router = express.Router();
-
-// var path = __dirname + '/views/';
-// app.use('/',router);
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
