@@ -19,8 +19,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/orange.css">
 
-        <!--Date-Picker Stylesheet-->
-        <link rel="stylesheet" href="css/datepicker.css">
+        <script src="js/jquery.min.js"></script>
     </head>
 
     <body class="page-body">
@@ -29,25 +28,7 @@
         <div class="loader"></div>
 
         <!--============== USER-PROFILE-SIDEBAR =============-->
-        <div id="user-profile-sidebar" class="user-prf-sidebar">
-        	<div class="user-prf-sidebar-img text-center" style="background:url('images/usr-prf-back-restaurant.jpg');
-	background-size:cover;">
-    			<div class="overlay">
-                    <img src="images/user-profile.jpg" class="img-responsive img-circle" alt="user-profile" />
-                    <h3>-- James Anderson --</h3>
-                </div><!-- end overlay -->
-        	</div><!-- end user-prf-sidebar-img -->
-
-            <div class="user-prf-sidebar-links">
-            	<ul class="list-unstyled">
-                	<li><a href="user-profile.html"><span><i class="fa fa-user"></i></span>My Profile</a></li>
-                    <li><a href="edit-profile.html"><span><i class="fa fa-pencil-alt"></i></span>Edit Profile</a></li>
-                    <li><a href="forget-password.html"><span><i class="fa fa-question"></i></span>Forget Password</a></li>
-                    <li><a href="reset-password.html"><span><i class="fa fa-sync"></i></span>Reset Password</a></li>
-                    <li><a href="#"><span><i class="fa fa-sign-out-alt"></i></span>Sign Out</a></li>
-                </ul>
-            </div><!-- end user-prf-sidebar-links -->
-        </div><!-- end user-profile-sidebar -->
+        <%- include partials/profile.ejs %>
 
 
         <div class="canvas">
@@ -83,109 +64,40 @@
             <section class="page-wrapper innerpage-section-padding">
                 <div id="checkout-page" >
                     <div class="container-fluid">
-                        <div class="innerpage-heading text-center">
+                        <div class="innerpage-heading cart-text-center">
                             <h3>Your Order</h3>
-                            <a href="shopping-cart.html" class="btn btn-orange">View Shopping Cart</a>
                         </div><!-- end innerpage-heading -->
 
                         <div class="order-list">
                             <ul class="list-unstyled">
-                                <li>
+                              <% var sum=0; %>
+                              <% for(var i=0; i<data.length; i++) { %>
+                                  <li id="<%= data[i].id %>-li">
                                     <div class="order">
                                         <div class="order-item">
                                             <div class="order-item-info">
-                                                <h4><a href="#">Breakfast-3</a></h4>
-                                                <p>Lorem ipsum, dolor</p>
-                                                <p class="order-item-price"><span>Price : $45</span> , Qty : 1</p>
+                                                <h4><%= data[i].id %></h4>
+                                                <p></p>
+                                                <p class="order-item-price"><span>Price : <%= data[i].price %></span> , Qty : <%= data[i].qty %></p>
                                             </div><!-- end order-item-info -->
 
                                             <div class="order-item-img">
-                                                <a href="#"><img src="images/dish-breakfast-3.png" class="img-responsive" alt="order-img" /></a>
+                                                <img src="images/<%= data[i].id%>.jpg" class="img-responsive" alt="order-img" />
                                             </div><!-- end order-img -->
                                         </div><!-- end order-item -->
 
                                         <div class="total">
-                                            <p>1 x $45 = <span>$45</span></p>
+                                            <p><%= data[i].qty %> x $<%= data[i].price %> = <span>$<%= data[i].qty * data[i].price %></span></p>
                                         </div><!-- end total -->
                                     </div><!-- end order-->
-                                </li>
-
-                                <li>
-                                    <div class="order">
-                                        <div class="order-item">
-                                            <div class="order-item-info">
-                                                <h4><a href="#">Dinner-4</a></h4>
-                                                <p>Lorem ipsum, dolor</p>
-                                                <p class="order-item-price"><span>Price : $45</span> , Qty : 1</p>
-                                            </div><!-- end order-item-info -->
-
-                                            <div class="order-item-img">
-                                                <a href="#"><img src="images/dish-dinner-4.png" class="img-responsive" alt="order-img" /></a>
-                                            </div><!-- end order-img -->
-                                        </div><!-- end order-item -->
-
-                                        <div class="total">
-                                            <p>1 x $45 = <span>$45</span></p>
-                                        </div><!-- end total -->
-                                    </div><!-- end order-->
-                                </li>
+                                  </li>
+                            <% sum = sum + (data[i].qty * data[i].price); %>
+                            <% } %>
                             </ul>
                             <div class="cart-info text-center">
-                                <h4>Total Price: <span>$90</span></h4>
+                                <h4>Total Price: <span><%= sum%></span></h4>
                             </div><!-- end cart-info -->
                         </div>
-
-                        <form class="custom-form">
-                            <h4>Fill in the form:</h4>
-                            <div class="form-group">
-                                 <input type="text" class="form-control" placeholder="Name"  required/>
-                            </div>
-
-                            <div class="form-group">
-                                 <input type="email" class="form-control" placeholder="Email"  required/>
-                            </div>
-
-                            <div class="form-group">
-                                 <input type="text" class="form-control" placeholder="Phone"  required/>
-                            </div>
-
-                            <div class="form-group">
-                                 <select class="form-control">
-                                    <option selected>Choose Payment</option>
-                                    <option>VISA</option>
-                                    <option>Credit Card</option>
-                                    <option>Paypal</option>
-                                 </select>
-                            </div>
-
-                            <div class="form-group">
-                                 <input type="text" class="form-control" placeholder="Card Number"  required/>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6">
-                                    <div class="form-group">
-                                         <input type="text" class="form-control dpd" placeholder="Expire Date"  required/>
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-6">
-                                    <div class="form-group">
-                                         <input type="text" class="form-control" placeholder="CVV Code"  required/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <textarea class="form-control" rows="5" placeholder="Additional Message"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label><input type="checkbox">I agree that i have read and accepted the <a href="#">terms & conditions</a></label>
-                            </div>
-
-                            <button class="btn btn-orange btn-radius">Submit</button>
-                        </form>
                     </div><!-- end container-fluid -->
                 </div><!-- end checkout-page -->
             </section><!-- end page-wrapper -->
@@ -198,7 +110,6 @@
 
 
    		<!-- Page Scripts Starts -->
-        <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/custom-navigation.js"></script>
         <!-- Page Scripts Ends -->

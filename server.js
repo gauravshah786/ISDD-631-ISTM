@@ -27,12 +27,41 @@ app.use(bodyParser.json());
 
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
 });
 
-app.get('/checkout', (req, res) => {
-  res.render('checkout');
+const getCartData = async (uid) => {
+  const cartRef = db.collection('cart');
+  const cartData = [];
+  await cartRef.where('uid','==', uid).get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        const rec = doc.data();
+          cartData.push({
+            id:rec.id,
+            qty:rec.qty,
+            price:rec.price
+          });
+      });
+    })
+    .catch(err => {
+      console.log('Error getting documents', err);
+    });
+    return cartData;
+}
+
+app.get('/', async (req, res) => {
+    res.render('index');
+});
+
+app.get('/checkout', async (req, res) => {
+  const data = await getCartData(req.query.uid);
+  res.render('checkout', {data});
 });
 
 app.get('/login', (req, res) => {
@@ -44,24 +73,13 @@ app.get('/register', (req, res) => {
 });
 
 app.get('/shopping-cart', async (req, res) => {
-  const uid = req.query.uid;
-  const cartRef = db.collection('cart');
-  let data = [];
-  await cartRef.where('uid','==', uid).get()
-    .then(snapshot => {
-      snapshot.forEach(doc => {
-        const rec = doc.data();
-          data.push({
-            id:rec.id,
-            qty:rec.qty,
-            price:rec.price
-          });
-      });
-    })
-    .catch(err => {
-      console.log('Error getting documents', err);
-    });
-    res.render('shopping-cart', {data: data});
+    const data = await getCartData(req.query.uid);
+    res.render('shopping-cart', {data});
+});
+
+app.get('/cartdata', async (req, res) => {
+  const data = await getCartData(req.query.uid);
+  res.send({data});
 });
 
 app.get('*', (req, res) => {

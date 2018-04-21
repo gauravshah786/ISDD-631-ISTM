@@ -32,62 +32,17 @@
     </head>
 
     <body class="page-body">
-
         <!--====== LOADER =====-->
         <div class="loader"></div>
-
-
-        <!--============ SIDE-NAV =============-->
-        <div class="sidenav-content">
-            <div id="mySidenav" class="sidenav" >
-                <div id="web-name">
-                    <h2><span>Yummy</span> Days</h2>
-                </div><!-- end web-name -->
-
-                <div id="main-menu">
-                    <div class="sidenav-closebtn">
-                        <button class="btn btn-default" id="sidenav-close">&times;</button>
-                    </div><!-- end sidenav-closebtn -->
-
-                    <div class="list-group panel">
-                        <a href="login" class="list-group-item"><span><i class="fa fa-lock sidebar-icon"></i></span>Login</a>
-                        <a href="register" class="list-group-item"><span><i class="fa fa-user-plus sidebar-icon"></i></span>Register</a>
-                    </div><!-- end list-group -->
-                </div><!-- end main-menu -->
-            </div><!-- end mySidenav -->
-        </div><!-- end sidenav-content -->
-
         <!--============== USER-PROFILE-SIDEBAR =============-->
-        <div id="user-profile-sidebar" class="user-prf-sidebar">
-        	<div class="user-prf-sidebar-img text-center">
-    			    <div class="overlay">
-                  <img src="images/user-profile.jpg" class="img-responsive img-circle" alt="user-profile" />
-                  <h3></h3>
-              </div><!-- end overlay -->
-        	</div><!-- end user-prf-sidebar-img -->
-
-            <div class="user-prf-sidebar-links">
-            	<ul class="list-unstyled">
-                	<li><a href="#"><span><i class="fa fa-user"></i></span>My Profile</a></li>
-                    <li><a href="#"><span><i class="fa fa-pencil-alt"></i></span>Edit Profile</a></li>
-                    <li><a href="#" id="logout"><span><i class="fa fa-sign-out-alt"></i></span>Sign Out</a></li>
-                </ul>
-            </div><!-- end user-prf-sidebar-links -->
-        </div><!-- end user-profile-sidebar -->
-
-
+        <%- include partials/profile.ejs %>
         <div class="canvas">
-
-			<div class="overlay-black"></div>
-
+			  <div class="overlay-black"></div>
             <!--========= HEADER =========-->
             <%- include partials/header.ejs %>
-
-
             <!--=========== SLIDER ==========-->
             <div class="flexslider" id="slider">
                 <ul class="slides">
-
                     <li class="item-1" style="background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/restaurant-slider-1.jpg'); background-size:cover;">
                         <div class="container text-center meta">
                             <p>Delicious Place</p>
@@ -163,7 +118,7 @@
                                                 <h4>Breakfast-1</h4>
                                                 <h5>$10</h5>
                                                 <input id="breakfast-1-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="breakfast-1" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="breakfast-1" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -176,7 +131,7 @@
                                                 <h4>Breakfast-2</h4>
                                                 <h5>$5</h5>
                                                 <input id="breakfast-2-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="breakfast-2" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="breakfast-2" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -191,7 +146,7 @@
                                                 <h4>Breakfast-3</a>
                                                 <h5>$7</h5>
                                                 <input id="breakfast-3-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="breakfast-3" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="breakfast-3" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -204,7 +159,7 @@
                                                 <h4>Breakfast-4</h4>
                                                 <h5>$8</h5>
                                                 <input id="breakfast-4-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="breakfast-4" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="breakfast-4" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -223,7 +178,7 @@
                                                 <h4>Lunch-1</h4>
                                                 <h5>$15</h5>
                                                 <input id="lunch-1-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="lunch-1" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="lunch-1" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -236,7 +191,7 @@
                                                 <h4>Lunch-2</h4>
                                                 <h5>$12</h5>
                                                 <input id="lunch-2-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="lunch-2" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="lunch-2" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -251,7 +206,7 @@
                                                 <h4>Lunch-3</h4>
                                                 <h5>$14</h5>
                                                 <input id="lunch-3-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="lunch-3" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="lunch-3" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -264,7 +219,7 @@
                                                 <h4>Lunch-4</h4>
                                                 <h5>$20</h5>
                                                 <input id="lunch-4-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="lunch-4" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="lunch-4" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -283,7 +238,7 @@
                                                 <h4>Dinner-1</h4>
                                                 <h5>$10</h5>
                                                 <input id="dinner-1-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="dinner-1" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="dinner-1" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -296,7 +251,7 @@
                                                 <h4>Dinner-2</h4>
                                                 <h5>$15</h5>
                                                 <input id="dinner-2-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="dinner-2" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="dinner-2" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -311,7 +266,7 @@
                                                 <h4>Dinner-3</h4>
                                                 <h5>$20</h5>
                                                 <input id="dinner-3-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="dinner-3" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="dinner-3" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
@@ -324,7 +279,7 @@
                                                 <h4>Dinner-4</h4>
                                                 <h5>$15</h5>
                                                 <input id="dinner-4-inp" type="number" class="form-control" min="1" value="1">
-                                                <button id="dinner-4" class="btn">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
+                                                <button id="dinner-4" class="btn fn-class">Add to cart<span><i class="fa fa-shopping-cart"></i></span></button>
                                                 <h4>View Nutrition Info</h4>
                                             </div><!-- end dish-list-text -->
                                         </div><!-- end dish-list -->
