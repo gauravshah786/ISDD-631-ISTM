@@ -14,6 +14,7 @@
 * 1.8	Testimonial
 * 1.9	Footer
 * 1.10	Page Cover
+* 1.11	Pagination
 * 1.12	Comments & Reviews
 * 1.13	Custom Form
 * 1.14	Form Page Links
@@ -58,7 +59,7 @@ ul{
 	margin-bottom:0px;
 }
 
-h1,h2,h3,h4,h5,input,select,textarea, #mySidenav #web-name h2 span, .header-logo h4 span, .header-log h4 a, .dish-list-text h4 a, #footer h3 span, .order-item-info h4 a, .user-profile-heading h3 span{
+h1,h2,h3,h4,h5,input,select,textarea, #mySidenav #web-name h2 span, .header-logo h4 span, .header-log h4 a, .dish-list-text h4 a, #footer h3 span,#footer-fixed h3 span, .order-item-info h4 a, .user-profile-heading h3 span{
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -141,6 +142,12 @@ a:hover{
 
 .innerpage-section-padding{
 	padding:40px 0px 50px;
+}
+.happy-background{
+	 background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/main.jpg');
+	 background-size:cover;
+	 height:74vh;
+
 }
 
 .canvas{
@@ -225,8 +232,9 @@ a:hover{
 	color:white;
 }
 
-#footer,
-#footer .copyright{
+#footer, #footer-fixed,
+.footer-social li .fab,
+#footer,#footer-fixed, .copyright{
 	color:#f2f2f2;
 }
 
@@ -510,7 +518,7 @@ a:hover{
 	margin:10px 0px 0px 0px;
 	padding:8px 10px;
 	font-size:16px;
-	border-radius:15px 15px 0px 0px;
+	border-radius:0px 0px 15px 15px;
 }
 
 .cart-info{
@@ -584,7 +592,8 @@ a:hover{
    ----------------------------------------------------- */
 
 .header{
-	height:52px;
+	/* height:119px;*/
+	height: 11vh;
 }
 
 .header .fixed-header{
@@ -798,7 +807,12 @@ a:hover{
 .menu .dish-list img{
 	display:inline-block;
 	padding:3px;
-	border-radius: 50px;
+	border-radius: 20px;
+}
+.item-img img{
+	display:inline-block;
+	padding:3px;
+	border-radius: 20px;
 }
 
 .menu .dish-list-text h4{
@@ -895,6 +909,53 @@ a:hover{
 }
 
 /* -----------------------------------------------------
+		Footer Fixed
+   ----------------------------------------------------- */
+
+#footer-fixed{
+	position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+height:15vh;
+	background:#0d0d0d;
+
+}
+#footer-fixed{
+	background:#0d0d0d;
+
+}
+
+#footer-fixed h3{
+	font-weight:bold;
+	text-transform:uppercase;
+	margin-bottom:15px;
+}
+
+#footer-fixed h3 i{
+	position:relative;
+	top:-3px;
+	margin-right:5px;
+	font-size:22px;
+}
+
+#footer-fixed .copyright{
+	font-size:13px;
+	margin:20px 0px;
+}
+
+#footer-fixed .copyright a{
+	text-transform:uppercase;
+}
+
+#footer-fixed .copyright span{
+	margin-right:3px;
+	position:relative;
+	top:-1px;
+}
+
+
+/* -----------------------------------------------------
 		Custom Form
    ----------------------------------------------------- */
 
@@ -927,7 +988,6 @@ a:hover{
 	padding:7px 35px;
 	margin-top:10px;
 }
-
 
 /* -----------------------------------------------------
 		Form Page Links
@@ -1089,6 +1149,64 @@ a:hover{
 	font-weight:bold;
 }
 
+/************** ERROR-PAGE **************/
+
+#error-page h2{
+	font-size:100px;
+	font-weight:bold;
+	position:relative;
+	display:inline-block;
+	padding:0px 8px;
+	margin-bottom:25px;
+}
+
+#error-page h2:before{
+	content:'';
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1px;
+	height:69%;
+}
+
+#error-page h2:after{
+	content:'';
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:79%;
+	height:1px;
+}
+
+.h2-shape:before{
+	content:'';
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	width:1px;
+	height:69%;
+}
+
+.h2-shape:after{
+	content:'';
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	width:79%;
+	height:1px;
+}
+
+#error-page h4{
+	color:#1b1819;
+	font-size:27px;
+}
+
+#error-page .btn{
+	margin-top:15px;
+	font-size:16px;
+	padding:7px 24px;
+}
+
 .empty {
 	border: 6px solid orange;
 	border-radius: 8px;
@@ -1096,16 +1214,21 @@ a:hover{
 	padding-top: 8%;
 	margin: 5% 15%;
 }
+
+
 /************** MEDIA-QUERIES **************/
+.enjoy-image{
+		width:100%;
+		border-radius: 15px;
+}
 
 @media (max-width: 960px) {
 	.innerpage-heading{
 		text-align: center;
 		margin-left: 0px;
 	}
-	.empty{
-		padding-bottom: 8%;
-		padding-top: 8%;
+	.empty {
 		margin: 45% 15%;
 	}
+
 }
