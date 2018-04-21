@@ -1,8 +1,4 @@
 const db = firebase.firestore();
-if(user && user.name){
-    $("#user-name").html("Welcome, " + user.name);
-}
-
 const itemPrice = {
   "breakfast-1":10,
   "breakfast-2":5,
@@ -17,32 +13,51 @@ const itemPrice = {
   "dinner-3":20,
   "dinner-4":15,
 }
-$(".btn").click(event => {
+
+$(".fn-class").click(event => {
   event.preventDefault();
-  if(user){
-    const id = event.target.id;
-    const qty = Number.parseInt($("#"+id+"-inp").val(), 10);
-    const uid = user.uid;
-    const price = itemPrice[id];
-    const item = {
-      uid,
-      id,
-      qty,
-      price
-    };
-    $('#' + id).prop('disabled',true);
-    $('#' + id).html("Added");
-    $('#' + id + '-inp').prop('disabled',true);
-    db.collection("cart").add(item).then(() => {
-      const cartQty = Number.parseInt($('#cart-qty').html(), 10) + 1;
-      $('#cart-qty').html(cartQty);
-    }).catch(error => {
-      console.error("Error adding cart item: ", error);
-    });
-  } else {
-    alert("Please login to add items to cart");
-  }
+  const id = event.target.id;
+  const qty = Number.parseInt($("#"+id+"-inp").val(), 10);
+  const uid = user.uid;
+  const price = itemPrice[id];
+  const item = {
+    uid,
+    id,
+    qty,
+    price
+  };
+  $('#' + id).prop('disabled',true);
+  $('#' + id).html("Added");
+  $('#' + id + '-inp').prop('disabled',true);
+  db.collection("cart").add(item).then(() => {
+    const cartQty = Number.parseInt($('#cart-qty').html(), 10) + 1;
+    $('#cart-qty').html(cartQty);
+  }).catch(error => {
+    console.error("Error adding cart item: ", error);
+  });
 });
+
+window.onload = () => {
+  if (localStorage.getItem("user") !== undefined) {
+    const data = { uid: user.uid };
+    $.ajax({
+      type: 'GET',
+      data: data,
+      contentType: 'application/json',
+      url: '/cartdata',
+      success: (response) => {
+        $('#cart-qty').html(response.data.length);
+        for (let item of response.data) {
+          const id = item.id;
+          $('#' + id).prop('disabled',true);
+          $('#' + id).html("Added");
+          $('#' + id + '-inp').val(item.qty);
+          $('#' + id + '-inp').prop('disabled',true);
+        }
+      }
+    });
+  }
+}
 
 const getLocation = () => {
   //Getting current location's co-ordinates
@@ -68,6 +83,6 @@ const getLocation = () => {
   }
 };
 
-  $(document).ready(function(){
-      getLocation();
-  });
+$(document).ready(() => {
+    getLocation();
+});

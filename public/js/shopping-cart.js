@@ -36,7 +36,7 @@ $('.remove').click(event => {
   const prevTotal = Number.parseInt($('#' + common + '-total').html(), 10);
   const newTotal = cartTotal - prevTotal;
   if(newTotal == 0){
-    $('#cart-message').html('Your cart is empty.');
+    $('#cart-message').parent().addClass("empty");
     $('#removable').remove();
   } else {
     $('#cart-total').html(newTotal);
@@ -56,4 +56,12 @@ $('.remove').click(event => {
   .catch(err => {
     console.log('Error removing documents', err);
   });
+});
+
+$("#confirm-order").click(event => {
+  event.preventDefault();
+  if(user){
+    const href = "/checkout?uid="+user.uid;
+    window.location = href;
+  }
 });
