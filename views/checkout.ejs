@@ -26,43 +26,14 @@
     </head>
 
     <body class="page-body">
-
         <!--====== LOADER =====-->
         <div class="loader"></div>
-
         <!--============== USER-PROFILE-SIDEBAR =============-->
         <%- include partials/profile.ejs %>
-
-
         <div class="canvas">
             <div class="overlay-black"></div>
-
             <!--========= HEADER =========-->
-            <div class="header">
-                <div class="fixed-header">
-                    <div class="container-fluid">
-                        <div class="header-logo">
-                            <a href="/"><img src='images/trans5_logo.png'></a>
-                        </div><!-- end header-logo -->
-                        <div class="header-links">
-                            <ul class="list-unstyled list-inline">
-                                <li class="shopping-cart">
-                                  <a href="/shopping-cart" id="shc-side-open">
-                                    <span>
-                                      <i class="fa fa-shopping-cart"></i>
-                                    </span>
-                                    <span id="cart-qty" class="cart-badge"><%=data.length%></span>
-                                  </a>
-                                </li>
-                                <li class="user-link"><a href="#" id="usr-side-open"><span><i class="fa fa-user"></i></span></a></li>
-                            </ul>
-                        </div><!-- end header-links -->
-                    </div><!-- end container-fluid -->
-                </div><!-- end fixed-header -->
-            </div><!-- end header -->
-            <script src="js/header.js">
-            </script>
-
+            <%- include partials/header.ejs %>
             <!--=================== PAGE-WRAPPER ================-->
             <section class="page-wrapper innerpage-section-padding">
                 <div id="checkout-page" >
@@ -105,17 +76,12 @@
                 </div><!-- end checkout-page -->
             </section><!-- end page-wrapper -->
 
-
             <!--=============== FOOTER ===============-->
             <%- include partials/footer.ejs %>
-
         </div><!-- end canvas -->
-
-
    		<!-- Page Scripts Starts -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/custom-navigation.js"></script>
         <!-- Page Scripts Ends -->
-
     </body>
 </html>

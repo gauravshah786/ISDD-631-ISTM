@@ -145,9 +145,7 @@ a:hover{
 }
 
 .happy-background{
-	 background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/main.jpg');
-	 background-size:cover;
-	 height:74vh;
+	 height:78vh;
 }
 
 .canvas{
@@ -587,13 +585,37 @@ a:hover{
 	margin-right:10px;
 }
 
+/*********** EDIT-PROFILE-PAGE ***********/
+
+#edit-user-page .innerpage-heading{
+	margin-bottom:15px;
+}
+
+.form-profile-img{
+	overflow:hidden;
+	padding:7px 0px 15px;
+}
+
+.form-profile-img img{
+	max-height:120px;
+	display:inline-block;
+	margin-bottom:15px;
+	box-shadow:0px 0px 10px rgba(0,0,0,0.3);
+}
+
+.form-profile-img input{
+	overflow:hidden;
+	width:70%;
+	margin:0 auto;
+	border-left:0px;
+}
+
 /* -----------------------------------------------------
 		Header
    ----------------------------------------------------- */
 
 .header{
-	/* height:119px;*/
-	height: 11vh;
+	height: 52px;
 }
 
 .header .fixed-header{
@@ -864,6 +886,7 @@ a:hover{
 
 #owl-testimonial .item .reviewer-text .star-rating .fa{
 	font-size:13px;
+	color: yellow;
 }
 
 #owl-testimonial .item .reviewer-text small{
@@ -912,18 +935,13 @@ a:hover{
 		Footer Fixed
    ----------------------------------------------------- */
 
-#footer-fixed{
+#footer-fixed {
 	position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-height:15vh;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height:15vh;
 	background:#0d0d0d;
-
-}
-#footer-fixed{
-	background:#0d0d0d;
-
 }
 
 #footer-fixed h3{
@@ -932,28 +950,10 @@ height:15vh;
 	margin-bottom:15px;
 }
 
-#footer-fixed h3 i{
-	position:relative;
-	top:-3px;
-	margin-right:5px;
-	font-size:22px;
-}
-
 #footer-fixed .copyright{
 	font-size:13px;
 	margin:20px 0px;
 }
-
-#footer-fixed .copyright a{
-	text-transform:uppercase;
-}
-
-#footer-fixed .copyright span{
-	margin-right:3px;
-	position:relative;
-	top:-1px;
-}
-
 
 /* -----------------------------------------------------
 		Custom Form
@@ -1208,19 +1208,13 @@ height:15vh;
 }
 
 .empty {
-	border: 6px solid orange;
-	border-radius: 8px;
 	padding-bottom: 8%;
 	padding-top: 8%;
-	margin: 5% 15%;
+	margin: 6% 15%;
 }
 
 
 /************** MEDIA-QUERIES **************/
-.enjoy-image{
-		width:100%;
-		border-radius: 15px;
-}
 
 @media (max-width: 960px) {
 	.innerpage-heading{
@@ -1228,7 +1222,8 @@ height:15vh;
 		margin-left: 0px;
 	}
 	.empty {
+		padding-bottom: 8%;
+		padding-top: 8%;
 		margin: 45% 15%;
 	}
-
 }

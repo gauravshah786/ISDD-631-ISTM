@@ -55,12 +55,52 @@ const getCartData = async (uid) => {
     return cartData;
 }
 
+const deleteCartData = (uid) => {
+  const cartRef = db.collection('cart');
+  cartRef.where('uid','==', uid).get().then(snapshot => {
+    snapshot.forEach(doc => {
+      cartRef.doc(doc.id).delete().catch(error => {
+          console.error("Error removing cart item: ", error);
+      });
+    })
+  })
+  .catch(err => {
+    console.log('Error removing cart items', err);
+  });
+}
+
+const addOrderData = (data) => {
+  const orderRef = db.collection('order');
+  for(let item of data){
+    orderRef.add(item).catch(error => {
+      console.error("Error adding order: ", error);
+    });
+  }
+}
+
+const getUserProfile = async (uid) => {
+  let user;
+  await db.collection('users').where('uid','==', uid)
+  .get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      user = doc.data();
+    });
+  })
+  .catch(err => {
+    console.log('Error getting documents', err);
+  });
+  return user;
+}
+
 app.get('/', async (req, res) => {
-    res.render('index');
+  res.render('index');
 });
 
 app.get('/checkout', async (req, res) => {
   const data = await getCartData(req.query.uid);
+  deleteCartData(req.query.uid);
+  addOrderData(data);
   res.render('checkout', {data});
 });
 
@@ -73,13 +113,37 @@ app.get('/register', (req, res) => {
 });
 
 app.get('/shopping-cart', async (req, res) => {
-    const data = await getCartData(req.query.uid);
-    res.render('shopping-cart', {data});
+  const data = await getCartData(req.query.uid);
+  res.render('shopping-cart', {data});
 });
 
 app.get('/cartdata', async (req, res) => {
   const data = await getCartData(req.query.uid);
   res.send({data});
+});
+
+app.get('/profile', async (req, res) => {
+  const data = await getUserProfile(req.query.uid);
+  res.send({data});
+});
+
+app.get('/edit-profile', async (req, res) => {
+  const data = await getUserProfile(req.query.uid);
+  res.render('edit-profile', {data});
+});
+
+app.post('/updateProfile', (req, res) => {
+  db.collection('users').where('uid','==', req.body.uid)
+  .get()
+  .then(snapshot => {
+    snapshot.forEach(doc => {
+      db.collection('users').doc(doc.id).update(req.body);
+    });
+  })
+  .catch(err => {
+    console.log('Error getting documents', err);
+  });
+  res.send({data:req.body}) ;
 });
 
 app.get('*', (req, res) => {

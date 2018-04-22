@@ -1,4 +1,3 @@
-const db = firebase.firestore();
 const itemPrice = {
   "breakfast-1":10,
   "breakfast-2":5,
@@ -54,6 +53,23 @@ window.onload = () => {
           $('#' + id + '-inp').val(item.qty);
           $('#' + id + '-inp').prop('disabled',true);
         }
+      }
+    });
+    $.ajax({
+      type: 'GET',
+      data: data,
+      contentType: 'application/json',
+      url: '/profile',
+      success: (response) => {
+        $('#user-name').html(response.data.name);
+        const imagePath = 'images/'+ response.data.fileName;
+        storage.ref().child(imagePath).getDownloadURL().then((url) => {
+          var profile_img = document.getElementById('profile-img');
+          profile_img.src = url;
+        }).catch((error) => {
+          // Handle any errors
+          console.log(error);
+        });
       }
     });
   }

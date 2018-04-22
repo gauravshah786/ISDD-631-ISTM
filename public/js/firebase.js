@@ -8,7 +8,8 @@ var config = {
   messagingSenderId: "901050328767"
 };
 firebase.initializeApp(config);
-
+var db = firebase.firestore();
+var storage = firebase.storage();
 firebase.auth().onAuthStateChanged(user => {
   if (!user) {
     localStorage.clear();
