@@ -39,9 +39,19 @@
                 <div id="checkout-page" >
                     <div class="container-fluid">
                         <div class="innerpage-heading cart-text-center">
-                            <h3>Your Order</h3>
+                            <h3>Order Details</h3>
                         </div><!-- end innerpage-heading -->
+                        <div class="innerpage-heading cart-text-center">
 
+                            <p id="order-message1" class="order-item-price" style = "text-align:center;">Thank you for placing the order!</p>
+
+                            <p id="order-message2" class="order-item-price" style = "text-align:center;">Your order will be ready for pickup from :<%%>  by :<%%>. The detailed order is as below:</p>
+
+                        </div>
+                        <div class="cart-item col-md-12">
+                          <div class="col-md-3">
+                          </div>
+                          <div class="col-md-6">
                         <div class="order-list">
                             <ul class="list-unstyled">
                               <% var sum=0; %>
@@ -56,7 +66,7 @@
                                             </div><!-- end order-item-info -->
 
                                             <div class="order-item-img">
-                                                <img src="images/<%= data[i].id%>.jpg" class="img-responsive" alt="order-img" />
+                                                <img src="images/<%= data[i].id%>.jpg" class="img-responsive" alt="order-img" style = "border-radius:20px;"/>
                                             </div><!-- end order-img -->
                                         </div><!-- end order-item -->
 
@@ -71,6 +81,13 @@
                             <div class="cart-info text-center">
                                 <h4>Total Price: <span><%= sum%></span></h4>
                             </div><!-- end cart-info -->
+                        </div>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                        </div>
+                        <div class = "order-home-link" >
+                          <a href="/" class="btn btn-orange" id="confirm-order" style = "text-align:center;">New Order</a>
                         </div>
                     </div><!-- end container-fluid -->
                 </div><!-- end checkout-page -->
