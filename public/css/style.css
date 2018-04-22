@@ -482,6 +482,12 @@ a:hover{
 	display:inline-block;
 }
 
+.dish-image:hover {
+        -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.2);
+}
+
 .cart-list li .item-text input,
 .dish-list input {
 	width:50px;
@@ -592,8 +598,7 @@ a:hover{
    ----------------------------------------------------- */
 
 .header{
-	/* height:119px;*/
-	height: 11vh;
+	height: 52px;
 }
 
 .header .fixed-header{
@@ -639,6 +644,11 @@ a:hover{
 .header .header-links li a{
 	color:#212121;
 	font-size:17px;
+}
+
+.surprise
+{
+	color:green;
 }
 
 .header .header-links li.shopping-cart .fa{
@@ -1148,6 +1158,9 @@ height:15vh;
 	line-height:0.5;
 	font-weight:bold;
 }
+.order-home-link{
+	text-align: center;
+}
 
 /************** ERROR-PAGE **************/
 
@@ -1176,6 +1189,20 @@ height:15vh;
 	top:0px;
 	width:79%;
 	height:1px;
+}
+
+.error-header {
+	height: 74vh;
+}
+
+.error-text {
+	color:#A82008;
+	font-size:30px;
+}
+
+.error-subtext {
+	font-size:20px;
+	color:#CFCFCF;
 }
 
 .h2-shape:before{

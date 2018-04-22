@@ -107,10 +107,18 @@
                           </ul>
 
                           <% if(data.length>0) { %>
-                          <div class="cart-info text-right">
-                              <h4 id="price-total">Total Price: $ <span id="cart-total"><%= sum%></span></h4>
-                              <a href="/checkout" class="btn btn-orange" id="confirm-order">Confirm Order</a>
+                            <div class="cart-item col-md-12">
+                              <div class="col-md-3">
+                              </div>
+                              <div class="col-md-6">
+                          <div class="cart-info text-right" style = "text-align:center;">
+                              <h4 id="price-total" style = "text-align:center;">Total Price: $ <span id="cart-total"><%= sum%></span></h4>
+                              <a href="/checkout" class="btn btn-orange" id="confirm-order" style = "text-align:center;">Confirm Order</a>
                           </div><!-- end cart-info -->
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                        </div>
                           <% } else { %>
                           <% } %>
                         </div>
