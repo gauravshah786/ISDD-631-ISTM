@@ -42,47 +42,58 @@
             <!--=================== PAGE-WRAPPER ================-->
             <section class="page-wrapper innerpage-section-padding">
                 <div id="edit-user-page">
-                    <div class="container-fluid text-center">
-                        <div class="innerpage-heading text-center">
+                    <div class="container-fluid">
+                        <div class="innerpage-heading cart-text-center">
                             <h3>Edit Profile</h3>
                         </div><!-- end innerpage-heading -->
-
-                        <form class="custom-form">
-                            <div class="form-profile-img">
-                                <img src="<%=data.downloadURL%>"id="edit-usr-img" class="img-responsive img-circle" alt="user-profile" />
-                                <input type="file" id="imageFile" required/>
-                            </div>
-
-                            <div class="form-group">
-                                 <div class="input-group">
-                                    <input id="name" type="text" class="form-control" placeholder="Name" value="<%=data.name%>" required/>
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                 <div class="input-group">
-                                    <input id="email" type="email" class="form-control" placeholder="Email" value="<%=data.email%>" required/>
-                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <div id="success-alert" class="alert alert-success alert-dismissible hidden">
+                          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                          <strong>Success!</strong> Your details have been updated successfully.
+                        </div>
+                        <div class="cart-item col-md-12">
+                          <div class="col-md-3">
+                          </div>
+                          <div class="col-md-6">
+                            <form class="custom-form cart-text-center">
+                                <div class="form-profile-img">
+                                    <img src="<%=data.downloadURL%>"id="edit-usr-img" class="img-responsive img-circle" alt="user-profile" />
+                                    <input type="file" id="imageFile" required/>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                 <div class="input-group">
-                                    <input id="phone" type="text" class="form-control" placeholder="Phone Number" value="<%=data.phone%>" required/>
-                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <div class="form-group">
+                                     <div class="input-group">
+                                        <input id="name" type="text" class="form-control" placeholder="Name" value="<%=data.name%>" required/>
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                     </div>
                                 </div>
-                            </div>
 
-                            <button id="update" class="btn btn-orange btn-radius">Update</button>
-                        </form>
+                                <div class="form-group">
+                                     <div class="input-group">
+                                        <input id="email" type="email" class="form-control" placeholder="Email" value="<%=data.email%>" required/>
+                                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                     <div class="input-group">
+                                        <input id="phone" type="text" class="form-control" placeholder="Phone Number" value="<%=data.phone%>" required/>
+                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <button id="update" class="btn btn-orange btn-radius">Update</button>
+                            </form>
+                          </div>
+                          <div class="col-md-3">
+                          </div>
+                        </div>
                     </div><!-- end container-fluid -->
                 </div><!-- end edit-user-page -->
             </section><!-- end page-wrapper -->
 
 
             <!--=============== FOOTER ===============-->
-            <%- include partials/footer.ejs %>
+            <%- include partials/footer_fixed.ejs %>
 
         </div><!-- end canvas -->
 

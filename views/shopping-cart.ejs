@@ -44,7 +44,7 @@
                           </div><!-- end header-logo -->
                           <div class="header-links">
                               <ul class="list-unstyled list-inline">
-                                  <li class="shopping-cart">
+                                  <li class="shopping-cart" id="cart-list">
                                     <a href="/shopping-cart" id="shc-side-open">
                                       <span>
                                         <i class="fa fa-shopping-cart"></i>
@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="col-md-6">
                                       <div class="item-text dish-list-text">
-                                          <h4><%= data[i].id %></h4>
+                                          <h4><%= data[i].name %></h4>
                                           <h5>Qty: <input id="<%= data[i].id %>" type="number" class="form-control" min="1" value=<%= data[i].qty %>> x <span id="<%= data[i].id %>-price"><%= data[i].price %></span></h5>
                                       </div><!-- end item-text -->
 

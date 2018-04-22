@@ -1,6 +1,7 @@
 $('#register').click((event) => {
   event.preventDefault();
   const name = $('#name').val();
+  const phone = $('#phone').val();
   const email = $('#email').val();
   const password = $('#password').val();
   const confirmpwd = $('#confirmpwd').val();
@@ -15,7 +16,7 @@ $('#register').click((event) => {
           name: name,
           email: email,
           uid: user.uid,
-          downloadURL: 'images/user-profile.jpg'
+          phone: phone
       };
       db.collection("users").add(tempUser).then(()=> {
           localStorage.setItem('user', JSON.stringify(tempUser));

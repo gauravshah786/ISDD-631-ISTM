@@ -19,9 +19,12 @@ $('#update').click(event => {
     url: '/updateProfile',
     success: (response) => {
       $('#user-name').html(name);
-      document.getElementById('profile-img').src = downloadURL;
-      document.getElementById('edit-usr-img').src = downloadURL;
-      $('#imageFile').val('');
+      $('#success-alert').removeClass('hidden');
+      if(downloadURL){
+        document.getElementById('profile-img').src = downloadURL;
+        document.getElementById('edit-usr-img').src = downloadURL;
+        $('#imageFile').val('');
+      }
     }
   });
 });
@@ -35,7 +38,6 @@ $('#imageFile').on('change', (e) => {
   // Upload file
   const task = storageRef.put(file).then(snapshot => {
     downloadURL = snapshot.downloadURL;
-    // e.target.value = '';
   }).catch(err => {
     console.log("Error in uploading file", err);
   });

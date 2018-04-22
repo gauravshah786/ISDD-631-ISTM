@@ -45,7 +45,8 @@ const getCartData = async (uid) => {
           cartData.push({
             id:rec.id,
             qty:rec.qty,
-            price:rec.price
+            price:rec.price,
+            name: rec.name
           });
       });
     })

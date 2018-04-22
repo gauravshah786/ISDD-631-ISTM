@@ -112,7 +112,7 @@ a:hover{
 }
 
 .innerpage-heading p{
-	font-size:13px;
+	font-size:15px;
 }
 
 .no-pad-top{
@@ -671,7 +671,22 @@ a:hover{
 
 .surprise
 {
-	color:green;
+	-webkit-animation-name: surpirse-effect; /* Safari 4.0 - 8.0 */
+	-webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+	animation-name: surpirse-effect;
+	animation-duration: 2s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes surpirse-effect {
+    from {background-color: none;}
+    to {background-color: yellow;}
+}
+
+/* Standard syntax */
+@keyframes surpirse-effect {
+    from {background-color: none;}
+    to {background-color: yellow;}
 }
 
 .header .header-links li.shopping-cart .fa{
@@ -685,7 +700,7 @@ a:hover{
 	min-height:20px;
 	min-width:20px;
 	border-radius:100%;
-	background:#212121;
+	background:gold;
 	text-align:center;
 	font-size:11px;
 }
@@ -1159,8 +1174,11 @@ a:hover{
 	line-height:0.5;
 	font-weight:bold;
 }
-.order-home-link{
-	text-align: center;
+
+.info {
+	color: #ff5722;
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
 /************** ERROR-PAGE **************/
@@ -1252,6 +1270,6 @@ a:hover{
 	.empty {
 		padding-bottom: 8%;
 		padding-top: 8%;
-		margin: 45% 15%;
+		margin: 47% 15%;
 	}
 }

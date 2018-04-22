@@ -14,6 +14,7 @@
 
         <!-- Font Awesome Stylesheet -->
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
         <!-- Custom Stylesheets -->
         <link rel="stylesheet" href="css/style.css">
@@ -42,53 +43,53 @@
                             <h3>Order Details</h3>
                         </div><!-- end innerpage-heading -->
                         <div class="innerpage-heading cart-text-center">
+                            <p>Thank you for placing order with us.<br/>
+                            Your order will be served fresh and with <i class="em em-heart"></i></p>
 
-                            <p id="order-message1" class="order-item-price" style = "text-align:center;">Thank you for placing the order!</p>
-
-                            <p id="order-message2" class="order-item-price" style = "text-align:center;">Your order will be ready for pickup from :<%%>  by :<%%>. The detailed order is as below:</p>
-
+                            <p><span class="info">Pick up Location: </span><span id="pick-location"></span><br/></p>
+                            <p><span class="info">Pick up Time: </span><span id="time"></span></p>
                         </div>
                         <div class="cart-item col-md-12">
                           <div class="col-md-3">
                           </div>
                           <div class="col-md-6">
-                        <div class="order-list">
-                            <ul class="list-unstyled">
-                              <% var sum=0; %>
-                              <% for(var i=0; i<data.length; i++) { %>
-                                  <li id="<%= data[i].id %>-li">
-                                    <div class="order">
-                                        <div class="order-item">
-                                            <div class="order-item-info">
-                                                <h4><%= data[i].id %></h4>
-                                                <p></p>
-                                                <p class="order-item-price"><span>Price : <%= data[i].price %></span> , Qty : <%= data[i].qty %></p>
-                                            </div><!-- end order-item-info -->
+                            <div class="order-list">
+                              <ul class="list-unstyled">
+                                <% var sum=0; %>
+                                <% for(var i=0; i<data.length; i++) { %>
+                                    <li id="<%= data[i].id %>-li">
+                                      <div class="order">
+                                          <div class="order-item">
+                                              <div class="order-item-info">
+                                                  <h4><%= data[i].name %></h4>
+                                                  <p></p>
+                                                  <p class="order-item-price"><span>Price : <%= data[i].price %></span> , Qty : <%= data[i].qty %></p>
+                                              </div><!-- end order-item-info -->
 
-                                            <div class="order-item-img">
-                                                <img src="images/<%= data[i].id%>.jpg" class="img-responsive" alt="order-img" style = "border-radius:20px;"/>
-                                            </div><!-- end order-img -->
-                                        </div><!-- end order-item -->
+                                              <div class="order-item-img">
+                                                  <img src="images/<%= data[i].id%>.jpg" class="img-responsive" alt="order-img" style = "border-radius:20px;"/>
+                                              </div><!-- end order-img -->
+                                          </div><!-- end order-item -->
 
-                                        <div class="total">
-                                            <p><%= data[i].qty %> x $<%= data[i].price %> = <span>$<%= data[i].qty * data[i].price %></span></p>
-                                        </div><!-- end total -->
-                                    </div><!-- end order-->
-                                  </li>
-                            <% sum = sum + (data[i].qty * data[i].price); %>
-                            <% } %>
-                            </ul>
+                                          <div class="total">
+                                              <p><%= data[i].qty %> x $<%= data[i].price %> = <span>$<%= data[i].qty * data[i].price %></span></p>
+                                          </div><!-- end total -->
+                                      </div><!-- end order-->
+                                    </li>
+                              <% sum = sum + (data[i].qty * data[i].price); %>
+                              <% } %>
+                              </ul>
                             <div class="cart-info text-center">
                                 <h4>Total Price: <span><%= sum%></span></h4>
                             </div><!-- end cart-info -->
-                        </div>
+                          </div>
                         </div>
                         <div class="col-md-3">
+                          <div>
+                              <img id="offer-img" src="images/offer_1.jpg" class="img-responsive" alt="offer-img"/>
+                          </div><!-- end order-img -->
                         </div>
-                        </div>
-                        <div class = "order-home-link" >
-                          <a href="/" class="btn btn-orange" id="confirm-order" style = "text-align:center;">New Order</a>
-                        </div>
+                      </div>
                     </div><!-- end container-fluid -->
                 </div><!-- end checkout-page -->
             </section><!-- end page-wrapper -->
@@ -99,6 +100,7 @@
    		<!-- Page Scripts Starts -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/custom-navigation.js"></script>
+        <script src="js/checkout.js"></script>
         <!-- Page Scripts Ends -->
     </body>
 </html>

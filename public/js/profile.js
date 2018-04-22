@@ -25,9 +25,16 @@ window.onload = () => {
       url: '/profile',
       success: (response) => {
         $('#user-name').html(response.data.name);
-        document.getElementById('profile-img').src = response.data.downloadURL;
-        if ($( "#edit-usr-img").length) {
-          document.getElementById('edit-usr-img').src = response.data.downloadURL;
+        if(response.data.downloadURL){
+          document.getElementById('profile-img').src = response.data.downloadURL;
+          if ($( "#edit-usr-img").length) {
+            document.getElementById('edit-usr-img').src = response.data.downloadURL;
+          }
+        } else {
+          document.getElementById('profile-img').src = 'images/user-profile.jpg';
+          if ($( "#edit-usr-img").length) {
+            document.getElementById('edit-usr-img').src = 'images/user-profile.jpg';
+          }
         }
       }
     });

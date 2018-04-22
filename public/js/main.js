@@ -13,17 +13,35 @@ const itemPrice = {
   "dinner-4":15,
 }
 
+const itemName = {
+  "breakfast-1":"Berry Jam Pancakes",
+  "breakfast-2":"Eggs Royale",
+  "breakfast-3":"Dosa Vada",
+  "breakfast-4":"Belgian Waffle",
+  "lunch-1":"Crispy Pork Chops",
+  "lunch-2":"Enchiladas",
+  "lunch-3":"Chicken Biryani",
+  "lunch-4":"Sandwich",
+  "dinner-1":"Noodles Soup",
+  "dinner-2":"Chicken Satay",
+  "dinner-3":"Dragon Chicken",
+  "dinner-4":"Veg Chow Mein",
+}
+
 $(".fn-class").click(event => {
   event.preventDefault();
+  $("#cart-list").addClass('surprise');
   const id = event.target.id;
   const qty = Number.parseInt($("#"+id+"-inp").val(), 10);
   const uid = user.uid;
   const price = itemPrice[id];
+  const name = itemName[id];
   const item = {
     uid,
     id,
     qty,
-    price
+    price,
+    name
   };
   $('#' + id).prop('disabled',true);
   $('#' + id).html("Added");
@@ -34,6 +52,7 @@ $(".fn-class").click(event => {
   }).catch(error => {
     console.error("Error adding cart item: ", error);
   });
+  setTimeout(() => $("#cart-list").removeClass('surprise'),2000);
 });
 
 window.onload = () => {
@@ -62,43 +81,18 @@ window.onload = () => {
       url: '/profile',
       success: (response) => {
         $('#user-name').html(response.data.name);
-        const imagePath = 'images/'+ response.data.fileName;
-        storage.ref().child(imagePath).getDownloadURL().then((url) => {
-          var profile_img = document.getElementById('profile-img');
-          profile_img.src = url;
-        }).catch((error) => {
-          // Handle any errors
-          console.log(error);
-        });
+        if(response.data.downloadURL){
+          document.getElementById('profile-img').src = response.data.downloadURL;
+          if ($( "#edit-usr-img").length) {
+            document.getElementById('edit-usr-img').src = response.data.downloadURL;
+          }
+        } else {
+          document.getElementById('profile-img').src = 'images/user-profile.jpg';
+          if ($( "#edit-usr-img").length) {
+            document.getElementById('edit-usr-img').src = 'images/user-profile.jpg';
+          }
+        }
       }
     });
   }
 }
-
-const getLocation = () => {
-  //Getting current location's co-ordinates
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      const lat = position.coords.latitude;
-      const long = position.coords.longitude;
-
-      // get Location from lat and long
-      const googleKey = "AIzaSyDT5C67yEp1K0Ccn9mFv0eT3OLoghcyodM";
-      const googleURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=";
-      const reverseGeocodingURL = googleURL + lat + "," + long + "&key=" + googleKey;
-
-      $.getJSON(reverseGeocodingURL, reverseLocJSON => {
-        for (let i = 0; i < reverseLocJSON.results[0].address_components.length; i++) {
-          const component = reverseLocJSON.results[0].address_components[i];
-          if(component.types[0] == "locality") {
-            console.log(component.long_name);
-          }
-        }
-      });
-    });
-  }
-};
-
-$(document).ready(() => {
-    getLocation();
-});

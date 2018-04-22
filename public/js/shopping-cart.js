@@ -38,6 +38,7 @@ $('.remove').click(event => {
     $('#cart-message').html('Your cart is empty.');
     $('#cart-message').parent().addClass("empty");
     $('#removable').remove();
+    $('#cart-list').removeClass('surprise');
   } else {
     $('#cart-total').html(newTotal);
     $(id).remove();
