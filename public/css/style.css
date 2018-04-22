@@ -143,11 +143,11 @@ a:hover{
 .innerpage-section-padding{
 	padding:40px 0px 50px;
 }
+
 .happy-background{
 	 background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/main.jpg');
 	 background-size:cover;
 	 height:74vh;
-
 }
 
 .canvas{
