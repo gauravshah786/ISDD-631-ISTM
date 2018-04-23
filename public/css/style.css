@@ -680,13 +680,13 @@ a:hover{
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes surpirse-effect {
     from {background-color: none;}
-    to {background-color: yellow;}
+    to {background-color: green;}
 }
 
 /* Standard syntax */
 @keyframes surpirse-effect {
     from {background-color: none;}
-    to {background-color: yellow;}
+    to {background-color: green;}
 }
 
 .header .header-links li.shopping-cart .fa{
